@@ -6,7 +6,11 @@ To make best of this guide, do following:
  - **No need to visit sub-links in the webpage**
  - Refer FAQs
 
-## [S3](./S3.md) - Simple Storage Service
+## Storage
 
-## [CloudFront](./CloudFront.md) - a Content Delivery Network
+- [**S3**](./Storage/S3.md) - Simple Storage Service
+
+## Networking & Content Delivery
+
+- [**CloudFront**](./Networking/CloudFront.md) - a Content Delivery Network
 
