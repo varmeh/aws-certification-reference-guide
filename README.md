@@ -10,6 +10,3 @@ To make best of this guide, do following:
 
 ## [CloudFront](./CloudFront.md) - a Content Delivery Network
 
-## Interesting Questions:
-
-- [S3 Transfer Acceleration vs CDN](https://acloud.guru/forums/aws-csa-2019/discussion/-Lis1MjuGCKWM5CnFeRD/transfer_acceleration_for_down)

@@ -1,95 +1,90 @@
 - [CloudFront](#cloudfront)
-  - [What's a CDN](#whats-a-cdn)
-    - [S3 Security & Encryption](#s3-security--encryption)
-  - [Amazon Storage](#amazon-storage)
-    - [Amazon Storage Gateway](#amazon-storage-gateway)
-    - [Snowball](#snowball)
-  - [S3 Transfer Acceleration](#s3-transfer-acceleration)
-  - [Static Website Using S3](#static-website-using-s3)
+  - [What is CloudFront?](#what-is-cloudfront)
+  - [Key Terminology](#key-terminology)
+  - [Use Cases](#use-cases)
+  - [How CloudFront Delivers Content](#how-cloudfront-delivers-content)
+  - [Getting Started](#getting-started)
+  - [Distributions](#distributions)
+  - [Content Management](#content-management)
+    - [Updating Content in Edge Locations](#updating-content-in-edge-locations)
+    - [Invalidating Files](#invalidating-files)
+    - [Managing Cache Expiration](#managing-cache-expiration)
+  - [Good to Know](#good-to-know)
+  - [Misc Questions](#misc-questions)
 
 # [CloudFront](https://aws.amazon.com/cloudfront/)
 
-## [What's a CDN](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/)
+## [What is CloudFront?](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
 
-- A Content Delivery Network or Content Distribution Network is a geographically distributed network of proxy servers and their data centres
+- CloudFront is a Content Delivery Network [(CDN)](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/)
+- A CDN is a system of distributed servers (*network*) that delivers web content to a user based on geographic location of user
 
-- Key terminology about CloudFront:
-  - **Edge Location**: this is the location where the content is cached for faster delivery (_low latency is the driving force behind cdn_)
-  - **Origin**: this is the source of all the files that the CDN will distribute. eg. EC2 instance, an S3 bucket, an Elastic Load Balancer, Route53 etc. You can also have your own origin, it not mandatory that is within AWS
-  - **Distribution**: this is the name AWS calls CDN's. It is basically a collection of Edge Locations
+## Key Terminology
+
+  - **Edge Location**: 
+    - This is the location where the content is cached for faster delivery (_low latency is the driving force behind CDN_)
+    - This is seperate from *AWS Regions* & *Availability Zones*
+    - When a user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency
+    - Edge locations are NOT READ only - you could write to them too (*uploading an object is permissible e.g. Transfer Acceleration*)
+    - Objects are cached for **TTL** (Time To Live)
+    - By default, CloudFront caches files in edge locations for 24 hours
+    - **Invalidating the cache is charged**: You can clear cached object but you will be charged for it
+    - It could be used to deliver both dynamic & static web sites alongside streaming & interactive content
+  
+  - **Origin**: 
+    - This is the origin of all the files that the CDN will distribute. eg. *EC2 instance*, *an S3 bucket*, *an Elastic Load Balancer*, *Route53* etc
+    - You can also have your own origin, it not mandatory to be a AWS Service
+
+  - **Distribution**: a collection of Edge Locations
     - 2 types of distribution
       - **Web Distribution**: typically for websites
       - **RTMP**: for media streaming
-    - TTL: time to live of the cached object.
 
-### [S3 Security & Encryption](https://aws.amazon.com/blogs/aws/new-amazon-s3-encryption-security-features/)
+## [Use Cases](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/IntroductionUseCases.html)
 
-- You can configure S3 to create access logs for requests made to the S3 bucket
-- Access control for buckets:
+## [How CloudFront Delivers Content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html)
 
-  - Bucket policies: Permission bucket wide
-  - Access control list: Permissions that can be applied to the single object
+## [Getting Started](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.html)
 
-- Encryption:
-  - In transit: from to your bucket, HTTPS for example
-  - At rest:
-    - Server-side encryption:
-      - S3 Managed Keys: SSE-S3 (Keys are managed by S3)
-      - Key Management Service: SS3-KMS the customer manages the keys
-      - Server-side encryption: Here you manage the keys, and Amazon manage the writes
-  - Client-side Encryption: You encrypt the data and you upload it encrypted to S3
+## [Distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview.html)
 
-## [Amazon Storage](https://aws.amazon.com/products/storage/)
+## Content Management
 
-### [Amazon Storage Gateway](https://aws.amazon.com/storagegateway/)
+### Updating Content in Edge Locations
 
-What's an Amazon Storage Gateway: AWS Storage Gateway connects an on-premises software appliance with cloud-based storage to provide seamless integration with data security features between your on-premises IT environment and the AWS storage infrastructure.
+- CloudFront distributes files to edge locations only when the files are requested, not when you put new or updated files in your origin
+- If you update an existing file in your origin with a newer version that has the same name, an edge location won't get that new version from your origin until both of the following occur:
+  - The old version of the file in the cache expires
+  - There's a user request for the file at that edge location
 
-- File Gateway: For flat files, stored directly in S3. You can NFS Mount points
-- VOlume gateway (iSCSI): Block-based storage
-  - Store volume (you keep all your data on prem)
-  - Cached Volumes (you keep only the most recent data on prem)
-    Tape Gateway (VTL): Virtual tapes
+### [Invalidating Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)
 
-### [Snowball](https://aws.amazon.com/snowball/)
+- Invalidate files from Edge locations to remove it immediately
+- You cannot invalidate objects that are served by an RTMP distribution
 
-Import Export is still available and was the first version of snowball, you used to ship your drives to AWS
+### [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html)
 
-Snowball is (an appliance) a petabyte-scale data transport solution that uses devices designed to be secure to transfer large amounts of data into and out of the AWS Cloud
+- Reducing the content TTL allows you to serve dynamic or updated content
+- Increasing the duration means your users get better performance because your files are more likely to be served directly from the edge cache
+  - A longer duration also reduces the load on your origin
 
-Snowball edge: is a 100TB data transfer device with onboard storage-computer capabilities. It's like an AWS DC in a box
+## Good to Know
 
-Snowmobile: AWS Snowmobile is an Exabyte-scale data transfer service used to move extremely large amounts of data to AWS. A truck full of disks basically.
+Following topics are NOT important for certification
 
-## [S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html)
+- [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html)
 
-Instead of uploading files directly to your S3 bucket, you can use the AWS edge network.
-Using a specific URL, you upload the file to your local edge and then the file will be uploaded to S3
-an example or URL: alessio-casco-accelerate.s3-accelerate.amazonaws.com
+- [Optimizing High Availability with CloudFront Origin Failover](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html)
 
-## [Static Website Using S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/HowDoIWebsiteConfiguration.html)
+  - Create an *origin group* with atleast 2 origins
+  - Set one as primary
+  - If primary fails for any reason, distribution starts using others as 
 
-- You can use bucket policies to make entire S3 buckets public
-- You can use S3 to host only static websites.
-- S3 Scales automatically to meet demand
+- [Lambda@Edge](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.html)
 
-[Permissions Required for Website Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteAccessPermissionsReqd.html)
+- [Identity and Access Management in CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/auth-and-access-control.html)
 
-On console: Amazon S3 => Your_Bucket => Permissions => Bucket Policy
 
-```json
-{
-	"Version": "2012-10-17",
-	"Statement": [
-		{
-			"Sid": "PublicReadGetObject",
-			"Effect": "Allow",
-			"Principal": "*",
-			"Action": ["s3:GetObject"],
-			"Resource": ["arn:aws:s3:::example-bucket/*"]
-		}
-	]
-}
-```
+## Misc Questions
 
-_[!!! Read the S3 FAQs before the exam !!!](https://aws.amazon.com/s3/faqs/)_
+- [S3 Transfer Acceleration vs CDN](https://acloud.guru/forums/aws-csa-2019/discussion/-Lis1MjuGCKWM5CnFeRD/transfer_acceleration_for_down)
