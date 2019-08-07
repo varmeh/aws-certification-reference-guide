@@ -14,3 +14,6 @@ To make best of this guide, do following:
 
 - [**CloudFront**](./Networking/CloudFront.md) - a Content Delivery Network
 
+## Migration & Transfer
+
+- [**Snowball**](./Migration/Snowball.md) - Transfer data In & Out of S3 with physical devices
