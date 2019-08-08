@@ -9,6 +9,7 @@ To make best of this guide, do following:
 ## Storage
 
 - [**S3**](./Storage/S3.md) - Simple Storage Service
+- [**Storage Gateway**](./Storage/StorageGateway.md) - Simple Storage Service
 
 ## Networking & Content Delivery
 
