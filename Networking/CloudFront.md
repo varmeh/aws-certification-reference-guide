@@ -7,6 +7,7 @@
   - [Distributions](#distributions)
   - [Content Management](#content-management)
     - [Updating Content in Edge Locations](#updating-content-in-edge-locations)
+    - [Serving Private Content](#serving-private-content)
     - [Invalidating Files](#invalidating-files)
     - [Managing Cache Expiration](#managing-cache-expiration)
   - [Good to Know](#good-to-know)
@@ -57,6 +58,16 @@
   - The old version of the file in the cache expires
   - There's a user request for the file at that edge location
 
+### [Serving Private Content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-overview.html)
+
+To access private files in an S3 bucket, you would need to do the following:
+
+- Create CloudFront [Signed Urls](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html) or [Signed Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-cookies.html) to limit access to files in your Amazon S3 bucket
+- Create a special CloudFront user called an [**Origin Access Identity (OAI)**](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) and associate it with your distribution
+
+- [Signed Url vs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html)
+
+
 ### [Invalidating Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)
 
 - Invalidate files from Edge locations to remove it immediately
@@ -88,3 +99,4 @@ Following topics are NOT important for certification
 ## Misc Questions
 
 - [S3 Transfer Acceleration vs CDN](https://acloud.guru/forums/aws-csa-2019/discussion/-Lis1MjuGCKWM5CnFeRD/transfer_acceleration_for_down)
+  
