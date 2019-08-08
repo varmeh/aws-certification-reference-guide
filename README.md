@@ -11,6 +11,10 @@ To make best of this guide, do following:
 - [**S3**](./Storage/S3.md) - Simple Storage Service
 - [**Storage Gateway**](./Storage/StorageGateway.md) - Simple Storage Service
 
+## Security
+
+- [**IAM**](./Security/IAM.md) - Identity Access Management
+
 ## Networking & Content Delivery
 
 - [**CloudFront**](./Networking/CloudFront.md) - a Content Delivery Network
