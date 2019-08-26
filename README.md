@@ -1,10 +1,13 @@
-# AWS Certification Guide
+# [AWS Certification Guide](https://aws.amazon.com/certification/)
 
 To make best of this guide, do following:
- - Read the content related to topic
- - Visit all the resource link highlighted in the files
- - **No need to visit sub-links in the webpage**
- - Refer FAQs
+
+- Read the content related to topic
+- Visit all the resource link highlighted in the files
+- **No need to visit sub-links in the webpage**
+- Refer FAQs
+
+[**Cloud Computing Basics**](./Cloud.md)
 
 ## Storage
 
