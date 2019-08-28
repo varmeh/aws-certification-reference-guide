@@ -9,6 +9,10 @@ To make best of this guide, do following:
 
 [**Cloud Computing Basics**](./Cloud.md)
 
+## Compute
+
+- [**EC2**](./Compute/EC2.md)
+
 ## Storage
 
 - [**S3**](./Storage/S3.md) - Simple Storage Service
