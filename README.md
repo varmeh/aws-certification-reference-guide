@@ -31,3 +31,7 @@ To make best of this guide, do following:
 ## Migration & Transfer
 
 - [**Snowball**](./Migration/Snowball.md) - Transfer data In & Out of S3 with physical devices
+
+## Management & Governance
+
+- [**CloudWatch**](./Management/CloudWatch.md) - Monitor AWS resources in real time
