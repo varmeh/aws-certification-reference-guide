@@ -4,6 +4,7 @@
   - [Amazon Machine Images](#amazon-machine-images)
     - [Root Device Volume](#root-device-volume)
     - [EBS vs Instance Store AMI](#ebs-vs-instance-store-ami)
+    - [Linux Virtualization Types](#linux-virtualization-types)
   - [Instances](#instances)
     - [Instance Types](#instance-types)
     - [Instance Purchasing Options](#instance-purchasing-options)
@@ -11,9 +12,18 @@
   - [Network & Security](#network--security)
     - [Ssh Key Pairs](#ssh-key-pairs)
     - [Security Groups](#security-groups)
-      - [CIDR Notation](#cidr-notation)
-      - [NAT](#nat)
       - [Understanding purpose of Outbound Rules](#understanding-purpose-of-outbound-rules)
+  - [Storage](#storage)
+    - [Understanding Block Devices](#understanding-block-devices)
+    - [EBS](#ebs)
+      - [Benefits of EBS over Instance Store](#benefits-of-ebs-over-instance-store)
+      - [EBS Volume Types](#ebs-volume-types)
+      - [EBS Snapshots](#ebs-snapshots)
+      - [EBS Encryption](#ebs-encryption)
+      - [EBS Device Naming Convention](#ebs-device-naming-convention)
+    - [EC2 Instance Store](#ec2-instance-store)
+    - [S3](#s3)
+    - [A Cloud Guru Questions](#a-cloud-guru-questions)
 
 # [Elastic Compute Cloud](https://aws.amazon.com/ec2/)
 
@@ -28,6 +38,8 @@ It provides scalable computing capacity in the AWS cloud
 ### [Root Device Volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html)
 
 ### [EBS vs Instance Store AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device)
+
+### [Linux Virtualization Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html)
 
 ## Instances
 
@@ -151,3 +163,60 @@ You could get your encryption key pair in 2 ways:
   - This also means that responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules
 
 #### [Understanding purpose of Outbound Rules](https://acloud.guru/forums/aws-csa-2019/discussion/-Ljh1TuR55bh2RzG1uk7/his_description_of_outbound_ru)
+
+
+## [Storage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html)
+
+Amazon has following storage options which work with EC2 instance:
+
+1. Elastic Block Store (EBS)
+   - Durable block-level storage volumes that you can attach to a running instance
+   - Used as a primary storage device for data that requires frequent and granular updates
+2. EC2 Instance Store
+   - Disk storage physically attached to the host computer
+   - It's a temporary block-level storage
+3. Elastic File System (EFS)
+4. Simple Storage Service (S3)
+
+### [Understanding Block Devices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#block-device-mapping-def)
+
+- Only way to add more than 1 instance store to an EC2 instance
+
+### [EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
+
+- Consider it as a virtual hard disk in cloud
+- Multiple volumes can be attached to an instance
+- EBS volumes are created in the Availability Zone of EC2 instance and they are automatically replicated with in AZ to prevent data loss
+- EBS volumes attached to an EC2 instance are exposed as storage volumes that persist independently from the life of the instance
+- Well suited for:
+  - Primary storage for File Systems
+  - Databases
+  - Datawarehouses/Big Data
+- You can change EBS volumes on the fly, including size & volume type
+- To move an EC2 volume from one AZ to other, take a snapshot & use that to create the volume
+
+#### [Benefits of EBS over Instance Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html#EBSFeatures)
+
+#### [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html)
+
+#### [EBS Snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html)
+
+- Back up the data on your Amazon EBS volumes to Amazon S3 by taking point-in-time snapshots
+- Snapshots are incremental backups
+
+#### [EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+
+#### [EBS Device Naming Convention](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html)
+
+### [EC2 Instance Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
+
+- Also called Ephemeral Storage
+- Instance store volumes cannot be stopped
+- If underlying host fails, you loose all the data
+
+### [S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonS3.html)
+
+- Amazon EC2 uses Amazon S3 for storing Amazon Machine Images (AMIs)
+- Amazon EC2 also uses Amazon S3 to store snapshots (backup copies) of the data volumes
+
+### [A Cloud Guru Questions](https://acloud.guru/forums/aws-csa-2019/top?p=1&type=question&componentId=3e6aac22-3121-25b8-ede1-7fd53e00eba2)
