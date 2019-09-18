@@ -9,6 +9,7 @@
     - [Instance Types](#instance-types)
     - [Instance Purchasing Options](#instance-purchasing-options)
     - [Instance Lifecycle](#instance-lifecycle)
+    - [Instance Meta-data](#instance-meta-data)
   - [Network & Security](#network--security)
     - [Ssh Key Pairs](#ssh-key-pairs)
     - [Security Groups](#security-groups)
@@ -120,6 +121,13 @@ It provides scalable computing capacity in the AWS cloud
   - Pay, by the hour, for instances that run on single-tenant hardware
 
 ### [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
+
+### [Instance Meta-data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-retrieval)
+
+To view all categories of instance metadata from within a running instance, use the following URI:
+```
+curl http://169.254.169.254/latest/meta-data/
+```
 
 ## Network & Security
 
