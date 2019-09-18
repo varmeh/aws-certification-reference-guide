@@ -7,7 +7,6 @@
   - [CloudWatch Dashboards](#cloudwatch-dashboards)
   - [CloudWatch Alarms](#cloudwatch-alarms)
   - [CloudWatch Container Insights](#cloudwatch-container-insights)
-  - [FAQ](#faq)
 
 # [CloudWatch](https://aws.amazon.com/cloudwatch/)
 
@@ -38,4 +37,3 @@ Alarms invoke actions for sustained state changes only
 
 ## [CloudWatch Container Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html)
 
-## [FAQ](https://aws.amazon.com/cloudwatch/faqs/)

@@ -1,7 +1,6 @@
 - [Storage Gateway](#storage-gateway)
   - [What is Storage Gateway](#what-is-storage-gateway)
   - [How AWS Storage Gateway Works](#how-aws-storage-gateway-works)
-  - [Misc Questions](#misc-questions)
 
 # [Storage Gateway](https://aws.amazon.com/storagegateway/)
 
@@ -38,7 +37,3 @@
 
 
 ## [How AWS Storage Gateway Works](https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html)
-
-## Misc Questions
-
-- [Faq](https://aws.amazon.com/storagegateway/faqs/?nc=sn&loc=6)

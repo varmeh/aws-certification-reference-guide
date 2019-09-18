@@ -35,3 +35,17 @@ To make best of this guide, do following:
 ## Management & Governance
 
 - [**CloudWatch**](./Management/CloudWatch.md) - Monitor AWS resources in real time
+
+
+## Other Material:
+
+### Recommended FAQ's
+
+1. [EC2](https://aws.amazon.com/ec2/faqs/)
+2. [S3](https://aws.amazon.com/s3/faqs/)
+3. [VPC](https://aws.amazon.com/vpc/faqs/)
+4. [Route 53](https://aws.amazon.com/route53/faqs/)
+5. [RDS](https://aws.amazon.com/rds/faqs/)
+6. [SQS](https://aws.amazon.com/sqs/faqs/)
+
+### [Cheat Sheet](http://jayendrapatil.com/tag/cheat-sheet/)

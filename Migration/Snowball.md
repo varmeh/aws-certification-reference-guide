@@ -2,7 +2,6 @@
   - [What is Snowball?](#what-is-snowball)
   - [Snowball Edge](#snowball-edge)
   - [Snowball vs Snowball Edge](#snowball-vs-snowball-edge)
-  - [Misc Questions](#misc-questions)
  
 # [Snowball](https://aws.amazon.com/snowball/)
 
@@ -19,7 +18,3 @@
   
 ## [Snowball vs Snowball Edge](https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html)
 
-## Misc Questions
-
-- [Snowball Faq](https://aws.amazon.com/snowball/faqs/)
-- [Snowball Edge Faq](https://aws.amazon.com/snowball-edge/faqs/)
