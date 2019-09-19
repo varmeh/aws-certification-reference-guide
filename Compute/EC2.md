@@ -14,6 +14,7 @@
     - [Ssh Key Pairs](#ssh-key-pairs)
     - [Security Groups](#security-groups)
       - [Understanding purpose of Outbound Rules](#understanding-purpose-of-outbound-rules)
+    - [Placement Groups](#placement-groups)
   - [Storage](#storage)
     - [Understanding Block Devices](#understanding-block-devices)
     - [EBS](#ebs)
@@ -172,6 +173,24 @@ You could get your encryption key pair in 2 ways:
 
 #### [Understanding purpose of Outbound Rules](https://acloud.guru/forums/aws-csa-2019/discussion/-Ljh1TuR55bh2RzG1uk7/his_description_of_outbound_ru)
 
+### [Placement Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
+
+Use placement groups to influence the placement of a group of *interdependent* instances to meet the needs of your workload
+
+- 3 Types:
+  - **Clustered**: 
+    - Packs instances close together inside an Availability Zone
+    - Recommended for applications which need low network latency, high network throughput, or both
+    - Spans only to 1 AZ
+  - **Spread**: 
+    - Strictly places a small group of instances across distinct underlying hardware to reduce correlated failures
+    - Individual critical EC2 instances
+    - Could span across multiple AZ
+  - **Partitioned**: 
+    - These are large logical groups of EC2 instances where each group is placed on separate hardware
+    - Each partition comprises multiple instances
+    - The instances in a partition do not share racks with the instances in the other partitions, allowing you to contain the impact of a single hardware failure to only the associated partition
+    - Could span across multiple AZ
 
 ## [Storage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html)
 
