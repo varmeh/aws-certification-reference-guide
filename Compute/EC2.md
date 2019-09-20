@@ -25,6 +25,7 @@
       - [EBS Device Naming Convention](#ebs-device-naming-convention)
     - [EC2 Instance Store](#ec2-instance-store)
     - [S3](#s3)
+    - [Summary of Storage Options](#summary-of-storage-options)
     - [A Cloud Guru Questions](#a-cloud-guru-questions)
 
 # [Elastic Compute Cloud](https://aws.amazon.com/ec2/)
@@ -245,5 +246,7 @@ Amazon has following storage options which work with EC2 instance:
 
 - Amazon EC2 uses Amazon S3 for storing Amazon Machine Images (AMIs)
 - Amazon EC2 also uses Amazon S3 to store snapshots (backup copies) of the data volumes
+
+### [Summary of Storage Options](https://help.acloud.guru/hc/en-us/articles/115002011194-AWS-Storage-Types-S3-EFS-EBS)
 
 ### [A Cloud Guru Questions](https://acloud.guru/forums/aws-csa-2019/top?p=1&type=question&componentId=3e6aac22-3121-25b8-ede1-7fd53e00eba2)

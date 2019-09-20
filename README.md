@@ -18,6 +18,7 @@ To make best of this guide, do following:
 ## Storage
 
 - [**S3**](./Storage/S3.md) - Simple Storage Service
+- [**EFS**](./Storage/EFS.md) - Elastic File Storage
 - [**Storage Gateway**](./Storage/StorageGateway.md) - Simple Storage Service
 
 ## Security
@@ -49,3 +50,7 @@ To make best of this guide, do following:
 6. [SQS](https://aws.amazon.com/sqs/faqs/)
 
 ### [Cheat Sheet](http://jayendrapatil.com/tag/cheat-sheet/)
+
+### Good Articles
+
+- [Encryption at Rest](https://aws.amazon.com/blogs/security/how-to-protect-data-at-rest-with-amazon-ec2-instance-store-encryption/)
