@@ -5,15 +5,32 @@ To make best of this guide, do following:
 - Read the content related to topic
 - Visit all the resource link highlighted in the files
 - **No need to visit sub-links in the webpage**
-- Refer FAQs
+- Refer FAQs mentioned in [faq's](#recommended-faqs)
 
-[**Cloud Computing Basics**](./Cloud.md)
+## Basics
 
-[**Networking Basics**](./Networking/Basics.md)
+- [**Cloud Computing Basics**](./Cloud.md)
+- [**Networking Basics**](./Networking/Basics.md)
 
 ## Compute
 
 - [**EC2**](./Compute/EC2.md)
+
+## Database
+
+- [**RDS**](./Databases/RDS.md)
+
+## Migration & Transfer
+
+- [**Snowball**](./Migration/Snowball.md) - Transfer data In & Out of S3 with physical devices
+
+## Management & Governance
+
+- [**CloudWatch**](./Management/CloudWatch.md) - Monitor AWS resources in real time
+
+## Networking & Content Delivery
+
+- [**CloudFront**](./Networking/CloudFront.md) - a Content Delivery Network
 
 ## Storage
 
@@ -24,18 +41,6 @@ To make best of this guide, do following:
 ## Security
 
 - [**IAM**](./Security/IAM.md) - Identity Access Management
-
-## Networking & Content Delivery
-
-- [**CloudFront**](./Networking/CloudFront.md) - a Content Delivery Network
-
-## Migration & Transfer
-
-- [**Snowball**](./Migration/Snowball.md) - Transfer data In & Out of S3 with physical devices
-
-## Management & Governance
-
-- [**CloudWatch**](./Management/CloudWatch.md) - Monitor AWS resources in real time
 
 
 ## Other Material:
