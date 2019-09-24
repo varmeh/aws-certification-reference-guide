@@ -42,6 +42,7 @@ To make best of this guide, do following:
 ## Database
 
 - [**RDS**](./Databases/RDS.md)
+- [**DynamoDB**](./Databases/DynamoDB.md)
 
 ## Migration & Transfer
 
