@@ -1,3 +1,20 @@
+- [AWS Certification Guide](#aws-certification-guide)
+  - [Basics](#basics)
+    - [General](#general)
+    - [AWS Specific](#aws-specific)
+  - [Compute](#compute)
+  - [Database](#database)
+  - [Migration & Transfer](#migration--transfer)
+  - [Management & Governance](#management--governance)
+  - [Networking & Content Delivery](#networking--content-delivery)
+  - [Storage](#storage)
+  - [Security](#security)
+  - [Other Material:](#other-material)
+    - [Recommended FAQ's](#recommended-faqs)
+    - [Cheat Sheet](#cheat-sheet)
+    - [Good Articles](#good-articles)
+
+
 # [AWS Certification Guide](https://aws.amazon.com/certification/)
 
 To make best of this guide, do following:
@@ -9,8 +26,14 @@ To make best of this guide, do following:
 
 ## Basics
 
+### General
+
 - [**Cloud Computing Basics**](./Cloud.md)
 - [**Networking Basics**](./Networking/Basics.md)
+
+### AWS Specific
+
+- [**Regions & AZ**](https://docs.aws.amazon.com/en_pv/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html)
 
 ## Compute
 
