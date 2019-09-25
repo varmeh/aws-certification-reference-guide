@@ -43,6 +43,7 @@ To make best of this guide, do following:
 
 - [**RDS**](./Databases/RDS.md)
 - [**DynamoDB**](./Databases/DynamoDB.md)
+- [**Redshift**](./Databases/Redshift.md)
 
 ## Migration & Transfer
 
