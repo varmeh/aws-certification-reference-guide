@@ -44,6 +44,7 @@ To make best of this guide, do following:
 - [**RDS**](./Databases/RDS.md)
 - [**DynamoDB**](./Databases/DynamoDB.md)
 - [**Redshift**](./Databases/Redshift.md)
+- [**Aurora**](./Databases/Aurora.md)
 
 ## Migration & Transfer
 
