@@ -18,10 +18,18 @@
 
 - Amazon ElastiCache supports the **Memcached** and **Redis** cache engines
 
-- Prefer **Memcached** if:
-  - You need the simplest model possible
-  - You need to run large nodes with multiple cores or threads
-  - You need the ability to scale out and in, adding and removing nodes as demand on your system increases and decreases
-  - You need to cache objects, such as a database
+- Prefer **Memcached** if you need:
+  - `Simplest model possible`
+  - `Multi-threading` - to run large nodes with multiple cores or threads
+  - `Horizontal Scaling` - the ability to scale out and in, adding and removing nodes as demand on your system increases and decreases
+  - to cache objects, such as a database
+
+- Prefer **Redis** if you need:
+  - `Multi-AZ ` - high availability
+  - `Encryption`
+  - `Compliance Certifications` - *FedRAMP*, *HIPAA* & *PCI DSS*
+  - `Backup and restore`
+  - `Automatic Failover`
+  - `Geospatial indexing`
 
 ## [Elastic Cache vs Read Replica](https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-Ke_GPS6RLo8eHaXIR_t/elasticache_vs_read_replica)
